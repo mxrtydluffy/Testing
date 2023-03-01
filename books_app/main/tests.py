@@ -4,7 +4,7 @@ import app
 
 from datetime import date
 from books_app.extensions import app, db, bcrypt
-from books_app.models import Book, Author, User, Audience
+from books_app.models import Book, Author, User, Audience, Genre
 
 """
 Run these tests with the command:
@@ -269,7 +269,6 @@ class MainTests(unittest.TestCase):
         self.app.post('/favorite/1')
 
         # TODO: Verify that the book with id 1 was added to the user's favorites
-        pa
         user = User.query.filter_by(id=1).one()
         self.assertIn("Mockingbird", user.favorite_books[0].title)
 
@@ -289,4 +288,3 @@ class MainTests(unittest.TestCase):
         
         # TODO: Verify that the book with id 1 was removed from the user's 
         # favorites
-        pass
